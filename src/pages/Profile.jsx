@@ -4,6 +4,8 @@ import { ReactComponent as ShareBtnDes } from '../assets/icons/shareButtonDes.sv
 import { ReactComponent as ShareBtnMob } from '../assets/icons/shareButtonMob.svg';
 import { ReactComponent as Github } from '../assets/icons/github.svg';
 import { ReactComponent as Slack } from '../assets/icons/slack.svg';
+import { ReactComponent as Cursor } from '../assets/icons/cursor.svg';
+import { ReactComponent as CameraIcon } from '../assets/icons/cameraIcon.svg';
 
 function Profile() {
   const data = {
@@ -56,12 +58,17 @@ function Profile() {
   return (
     <div className="">
       <div id="profile_section" className="relative">
-        <img
-          src={profilePics}
-          alt=""
-          id="profile_id"
-          className="rounded-full h-[88px] w-[88px] object-cover mx-auto"
-        />
+        <div className="rounded-full h-[88px] w-[88px] mx-auto overflow-hidden relative cursor-pointer">
+          <img
+            src={profilePics}
+            alt="profile_pics"
+            id="profile_id"
+            className="rounded-full h-full w-full object-cover"
+          />
+          <div className="h-full w-full flex absolute top-0 left-0 items-end justify-center pb-2 bg-[#344054BF] opacity-0 hover:opacity-100 transition-all ease-in-out duration-300">
+            <CameraIcon />
+          </div>
+        </div>
 
         <p
           id="twitter"
@@ -72,9 +79,17 @@ function Profile() {
         <p className="hidden" id="slack">
           Ademola Taiwo Ayomide
         </p>
-        <div id="share_btn" className="absolute -top-5 right-0 md:right-1/4">
+        <div
+          id="share_btn"
+          className="group absolute flex cursor-pointer items-center justify-center w-10 h-10 rounded-full border border-dashed border-gray-300 -top-5 right-0 transition-all ease-in-out duration-300 hover:bg-gray-50 md:right-1/4"
+        >
           <ShareBtnDes className="hidden md:block" />
           <ShareBtnMob className="md:hidden" />
+
+          <p className="text-white bg-gray-900 hidden transition-all ease-in-out duration-300 -left-24 opacity-0  w-20 text-center absolute text-xs font-semibold py-2 rounded-lg before:block before:absolute before:w-3 before:h-3 before:bg-gray-900 before:-right-[3px] before:top-1/2 before:-translate-y-1/2 before:rotate-45 group-hover:opacity-100 md:block">
+            Share Link
+          </p>
+          <Cursor className="absolute hidden -right-[20%] -bottom-[10%] py-0.5 px-0.5 opacity-0 transition-all ease-in-out duration-300 group-hover:opacity-100 md:block" />
         </div>
       </div>
       <div id="links_section" className="flex flex-col my-6 space-y-6">
@@ -86,7 +101,7 @@ function Profile() {
             alt={ln.alt}
             target="_blank"
             rel="noreferrer"
-            className="bg-gray-200 py-6 text-center rounded-lg font-medium md:font-semibold md:text-lg"
+            className="bg-gray-200 py-6 text-center rounded-lg font-medium hover:bg-gray-300 md:font-semibold md:text-lg"
           >
             {ln.title}
           </a>
