@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <main className="pt-16 px-4 container mx-auto">
+        <main className="py-16 px-4 container mx-auto">
           <Routes>
             <Route path="/" exact element={<Profile />} />
             <Route path="/contact" element={<Contact />} />
