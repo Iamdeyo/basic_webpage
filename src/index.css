@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply bg-gray-200 py-6 text-center rounded-lg font-medium;
+  }
+}
+
+body {
+  background-color: #fff;
+}

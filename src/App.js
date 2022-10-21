@@ -1,17 +1,23 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Footer from './components/Footer';
+import ErrorPage from './pages/ErrorPage';
+import Profile from './pages/Profile';
+import Contact from './pages/Contact';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link text-red-500"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <main className="pt-16 px-4 container mx-auto">
+          <Routes>
+            <Route path="/" exact element={<Profile />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/*" element={<ErrorPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </BrowserRouter>
+    </>
   );
 }
 
