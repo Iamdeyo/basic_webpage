@@ -8,13 +8,11 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <main className="py-16 px-4 container mx-auto">
-          <Routes>
-            <Route path="/" exact element={<Profile />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/*" element={<ErrorPage />} />
-          </Routes>
-        </main>
+        <Routes>
+          <Route path="/" exact element={<Profile />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/*" element={<ErrorPage />} />
+        </Routes>
         <Footer />
       </BrowserRouter>
     </>

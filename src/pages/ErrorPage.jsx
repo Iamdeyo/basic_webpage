@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Back } from '../assets/icons/backIcon.svg';
+import { useNavigate } from 'react-router-dom';
 
 function ErrorPage() {
+  const navigate = useNavigate();
+
   return (
-    <div className="py-16 mt-2">
+    <div className="my-[72px] px-4 py-40 container mx-auto md:my-[96px]">
       <p className="text-[#5925DC] text-base font-semibold mb-3">404 error</p>
       <p className="font-semibold text-4xl mb-4 text-gray-900 md:mb-6 md:text-6xl">
         We can't find that page
@@ -20,12 +23,12 @@ function ErrorPage() {
         >
           Take me home
         </Link>
-        <Link
-          to={'/'}
+        <div
+          onClick={() => navigate(-1)}
           className="text-gray-700 justify-center text-base font-semibold rounded-lg w-full py-3 px-5 gap-3 flex border border-[#D0D5DD] items-center md:w-fit md:order-1"
         >
           <Back /> Go back
-        </Link>
+        </div>
       </div>
     </div>
   );

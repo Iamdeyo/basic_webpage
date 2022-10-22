@@ -56,7 +56,7 @@ function Profile() {
     ],
   };
   return (
-    <div className="">
+    <div className="my-16 px-4 container mx-auto">
       <div id="profile_section" className="relative">
         <div className="rounded-full h-[88px] w-[88px] mx-auto overflow-hidden relative cursor-pointer">
           <img
@@ -101,7 +101,7 @@ function Profile() {
             alt={ln.alt}
             target="_blank"
             rel="noreferrer"
-            className="bg-gray-200 py-6 text-center rounded-lg font-medium hover:bg-gray-300 md:font-semibold md:text-lg"
+            className="bg-gray-200 py-6 text-center text-gray-900 rounded-lg font-medium hover:bg-gray-300 md:font-semibold md:text-lg"
           >
             {ln.title}
           </a>
