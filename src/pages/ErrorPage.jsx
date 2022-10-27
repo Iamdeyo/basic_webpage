@@ -19,13 +19,13 @@ function ErrorPage() {
       <div className="flex flex-col gap-3 md:flex-row">
         <Link
           to={'/'}
-          className="text-white text-center text-base font-semibold rounded-lg w-full py-3 px-5 gap-2 border bg-[#5925DC] md:w-fit md:order-2"
+          className="text-white text-center text-base font-semibold rounded-lg w-full transition-all duration-300 ease-in-out py-3 px-5 gap-2 border bg-[#5925DC] hover:bg-[#4f20c5] md:w-fit md:order-2"
         >
           Take me home
         </Link>
         <div
           onClick={() => navigate(-1)}
-          className="text-gray-700 justify-center text-base font-semibold rounded-lg w-full py-3 px-5 gap-3 flex border border-[#D0D5DD] items-center md:w-fit md:order-1"
+          className="text-gray-700 justify-center text-base font-semibold rounded-lg w-full py-3 transition-all duration-300 ease-in-out px-5 gap-3 flex border border-[#D0D5DD] items-center hover:bg-gray-50 cursor-pointer md:w-fit md:order-1"
         >
           <Back /> Go back
         </div>
