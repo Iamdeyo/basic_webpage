@@ -13,13 +13,13 @@ function Profile() {
     links_section: [
       {
         id: 1,
-        linkId: 'twitter_btn',
+        linkId: 'twitter__btn',
         link: 'https://twitter.com/AyomidTaiwo',
         title: 'Twitter Link',
       },
       {
         id: 2,
-        linkId: 'btn_zuri',
+        linkId: 'btn__zuri',
         link: 'https://training.zuri.team/',
         title: 'Zuri Team',
       },
@@ -31,7 +31,7 @@ function Profile() {
       },
       {
         id: 4,
-        linkId: 'book_pyhton',
+        linkId: 'book__pyhton',
         link: 'https://books.zuri.team/python-for-beginners?ref_id=deyo',
         title: 'Python Books',
       },
@@ -43,7 +43,7 @@ function Profile() {
       },
       {
         id: 6,
-        linkId: 'book_design',
+        linkId: 'book__design',
         link: 'https://books.zuri.team/design-rules',
         title: 'Design Books',
       },
@@ -56,7 +56,7 @@ function Profile() {
           <img
             src={profilePics}
             alt="profile_pics"
-            id="profile_img"
+            id="profile__img"
             className="rounded-full h-full w-full object-cover"
           />
           <div className="h-full w-full flex absolute top-0 left-0 items-end justify-center pb-2 bg-[#344054BF] opacity-0 hover:opacity-100 transition-all ease-in-out duration-300">
