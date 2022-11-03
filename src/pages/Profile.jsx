@@ -6,48 +6,59 @@ import { ReactComponent as Github } from '../assets/icons/github.svg';
 import { ReactComponent as Slack } from '../assets/icons/slack.svg';
 import { ReactComponent as Cursor } from '../assets/icons/cursor.svg';
 import { ReactComponent as CameraIcon } from '../assets/icons/cameraIcon.svg';
+import { Link } from 'react-router-dom';
 
 function Profile() {
   const data = {
     profile_section: {},
-    links_section: [
-      {
-        id: 1,
-        linkId: 'twitter__btn',
-        link: 'https://twitter.com/AyomidTaiwo',
-        title: 'Twitter Link',
-      },
-      {
-        id: 2,
-        linkId: 'btn__zuri',
-        link: 'https://training.zuri.team/',
-        title: 'Zuri Team',
-      },
-      {
-        id: 3,
-        linkId: 'books',
-        link: 'http://books.zuri.team',
-        title: 'Zuri Books',
-      },
-      {
-        id: 4,
-        linkId: 'book__pyhton',
-        link: 'https://books.zuri.team/python-for-beginners?ref_id=deyo',
-        title: 'Python Books',
-      },
-      {
-        id: 5,
-        linkId: 'pitch',
-        link: 'https://background.zuri.team',
-        title: 'Background Check for Coders',
-      },
-      {
-        id: 6,
-        linkId: 'book__design',
-        link: 'https://books.zuri.team/design-rules',
-        title: 'Design Books',
-      },
-    ],
+    links_section: {
+      external_links: [
+        {
+          id: 1,
+          linkId: 'twitter__btn',
+          link: 'https://twitter.com/AyomidTaiwo',
+          title: 'Twitter Link',
+        },
+        {
+          id: 2,
+          linkId: 'btn__zuri',
+          link: 'https://training.zuri.team/',
+          title: 'Zuri Team',
+        },
+        {
+          id: 3,
+          linkId: 'books',
+          link: 'http://books.zuri.team',
+          title: 'Zuri Books',
+        },
+        {
+          id: 4,
+          linkId: 'book__pyhton',
+          link: 'https://books.zuri.team/python-for-beginners?ref_id=deyo',
+          title: 'Python Books',
+        },
+        {
+          id: 5,
+          linkId: 'pitch',
+          link: 'https://background.zuri.team',
+          title: 'Background Check for Coders',
+        },
+        {
+          id: 6,
+          linkId: 'book__design',
+          link: 'https://books.zuri.team/design-rules',
+          title: 'Design Books',
+        },
+      ],
+      routing_links: [
+        {
+          id: 1,
+          linkId: 'contact',
+          link: '/contact',
+          title: 'Contact Me',
+        },
+      ],
+    },
   };
   return (
     <div className="pt-16 pb-8 px-4 container mx-auto md:pb-16 md:px-8">
@@ -87,7 +98,7 @@ function Profile() {
         </div>
       </div>
       <div id="links_section" className="flex flex-col mt-8 gap-6 md:mt-14">
-        {data.links_section.map((ln) => (
+        {data.links_section.external_links.map((ln) => (
           <a
             key={ln.id}
             href={ln.link}
@@ -98,6 +109,18 @@ function Profile() {
           >
             {ln.title}
           </a>
+        ))}
+        {data.links_section.routing_links.map((ln) => (
+          <Link
+            key={ln.id}
+            to={ln.link}
+            id={ln.linkId}
+            target="_blank"
+            rel="noreferrer"
+            className="bg-gray-200 py-6 text-center text-gray-900 rounded-lg font-medium hover:bg-gray-300 md:font-semibold md:text-lg"
+          >
+            {ln.title}
+          </Link>
         ))}
       </div>
       <div
