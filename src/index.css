@@ -8,8 +8,52 @@
   html {
     font-family: 'Inter', sans-serif;
   }
+  .input {
+    @apply outline-none border border-[#D0D5DD] rounded-lg py-[10px] px-[14px] transition-all duration-300 ease-in-out text-gray-900 font-normal text-base shadow-[#1018280d] shadow-sm w-full;
+  }
+  .input::placeholder {
+    @apply text-base font-normal text-gray-500;
+  }
+  .input:focus {
+    @apply border-blue-300;
+  }
 }
 
 body {
   background-color: #fff;
+}
+
+/* contact page form checkbox styling */
+#agreement {
+  appearance: none;
+  box-sizing: border-box;
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  position: relative;
+}
+#agreement:checked {
+  background: #f9fafb;
+  border: 1px solid #1570ef;
+}
+#agreement:checked::after {
+  content: url('../src/assets/icons/check.svg');
+  position: absolute;
+  left: 0%;
+  top: -1px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#agreement.focus:focus {
+  border: 1px solid #84caff;
+  box-shadow: 0px 0px 0px 4px #d1e9ff;
+}
+#agreement.disabled:disabled {
+  background: #f2f4f7;
+  border: 1px solid #d0d5dd;
 }
