@@ -4,7 +4,6 @@ import { useState } from 'react';
 function Contact() {
   const [inputs, setInputs] = useState({});
   const [errors, setErrors] = useState({ agreement: true, message: true });
-  var d = '';
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -22,13 +21,13 @@ function Contact() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs);
   };
 
-  console.log(errors);
-
   return (
-    <div className="pt-16 pb-8 px-4 container mx-auto md:pb-16 md:px-8">
+    <div
+      id="contact"
+      className="pt-16 pb-8 px-4 container mx-auto md:pb-24 md:pt-16 md:px-8"
+    >
       {/* Header Section */}
       <div className="mb-12 flex flex-col text-gray-900 gap-4 md:gap-5">
         <p className="text-4xl font-semibold">Contact Me</p>
@@ -39,42 +38,44 @@ function Contact() {
       </div>
       {/* Form Section */}
       <form onSubmit={handleSubmit}>
-        <div id="form_fields" className="flex flex-col  gap-6">
-          <div className="flex flex-col items-start gap-[6px]">
-            <label
-              htmlFor="first_name"
-              className="text-sm font-medium text-gray-700"
-            >
-              Frist name
-            </label>
-            <input
-              id="first_name"
-              name="first_name"
-              type="text"
-              placeholder="Enter your first name"
-              className="input"
-              onChange={handleChange}
-              value={inputs.first_name || ''}
-            />
+        <div id="form_fields" className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 md:flex-row">
+            <div className="flex flex-col items-start gap-[6px] md:w-1/2">
+              <label
+                htmlFor="first_name"
+                className="text-sm font-medium text-gray-700"
+              >
+                Frist name
+              </label>
+              <input
+                id="first_name"
+                name="first_name"
+                type="text"
+                placeholder="Enter your first name"
+                className="input"
+                onChange={handleChange}
+                value={inputs.first_name || ''}
+              />
+            </div>
+            <div className="flex flex-col items-start gap-[6px] md:w-1/2">
+              <label
+                htmlFor="last_name"
+                className="text-sm font-medium text-gray-700"
+              >
+                Last name
+              </label>
+              <input
+                id="last_name"
+                name="last_name"
+                type="text"
+                placeholder="Enter your last name"
+                className="input"
+                onChange={handleChange}
+                value={inputs.last_name || ''}
+              />
+            </div>
           </div>
-          <div className="flex flex-col items-start gap-[6px]">
-            <label
-              htmlFor="last_name"
-              className="text-sm font-medium text-gray-700"
-            >
-              Last name
-            </label>
-            <input
-              id="last_name"
-              name="last_name"
-              type="text"
-              placeholder="Enter your last name"
-              className="input"
-              onChange={handleChange}
-              value={inputs.last_name || ''}
-            />
-          </div>
-          <div className="flex flex-col items-start gap-[6px]">
+          <div className="flex flex-col items-start gap-[6px] w-full">
             <label
               htmlFor="email"
               className="text-sm font-medium text-gray-700"
@@ -91,7 +92,7 @@ function Contact() {
               value={inputs.email || ''}
             />
           </div>
-          <div className="flex flex-col items-start gap-[6px]">
+          <div className="flex flex-col items-start gap-[6px] w-full">
             <label
               htmlFor="message"
               className="text-sm font-medium text-gray-700"
