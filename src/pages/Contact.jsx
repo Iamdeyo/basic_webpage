@@ -2,12 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 
 function Contact() {
-  const [agree, setAgree] = useState(false);
   const [inputs, setInputs] = useState({});
   const [errors, setErrors] = useState({ agreement: true, message: true });
-  const handleCheckbox = (e) => {
-    setAgree((prev) => (prev = !prev));
-  };
+  var d = '';
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -59,9 +56,6 @@ function Contact() {
               onChange={handleChange}
               value={inputs.first_name || ''}
             />
-            <span className="text-sm font-normal invisible text-[#F83F23]">
-              Please enter a message
-            </span>
           </div>
           <div className="flex flex-col items-start gap-[6px]">
             <label
@@ -79,9 +73,6 @@ function Contact() {
               onChange={handleChange}
               value={inputs.last_name || ''}
             />
-            <span className="text-sm font-normal invisible text-[#F83F23]">
-              Please enter a message
-            </span>
           </div>
           <div className="flex flex-col items-start gap-[6px]">
             <label
@@ -99,9 +90,6 @@ function Contact() {
               onChange={handleChange}
               value={inputs.email || ''}
             />
-            <span className="text-sm font-normal invisible text-[#F83F23]">
-              Please enter a message
-            </span>
           </div>
           <div className="flex flex-col items-start gap-[6px]">
             <label
