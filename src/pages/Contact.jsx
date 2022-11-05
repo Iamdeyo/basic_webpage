@@ -1,27 +1,67 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 
 function Contact() {
   const [inputs, setInputs] = useState({});
-  const [errors, setErrors] = useState({ agreement: true, message: true });
-  const handleChange = (e) => {
+  const [errors, setErrors] = useState({ agreement: true });
+  const [submitted, setSubmitted] = useState(null);
+
+  const handleError = (name, value, con) => {
+    value !== con
+      ? setErrors((prev) => ({ ...prev, [name]: false }))
+      : setErrors((prev) => ({ ...prev, [name]: true }));
+  };
+
+  const validateForm = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+    switch (name) {
+      case 'first_name':
+        handleError(name, value, '');
+        break;
+      case 'last_name':
+        handleError(name, value, '');
+        break;
+      case 'email':
+        handleError(name, value, '');
+        break;
+      case 'message':
+        handleError(name, value, '');
+        break;
+      case 'agreement':
+        setErrors((prev) => ({ ...prev, [name]: !errors.agreement }));
+        break;
 
-    if (name === 'message') {
-      console.log(value.length);
-      value !== ''
-        ? setErrors((prev) => ({ ...prev, [name]: false }))
-        : setErrors((prev) => ({ ...prev, [name]: true }));
-    }
-    if (name === 'agreement') {
-      setErrors((prev) => ({ ...prev, [name]: !errors.agreement }));
+      default:
+        break;
     }
     setInputs((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleChange = (e) => {
+    validateForm(e);
+    setSubmitted(null);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const con = e.target.length - 1;
+    if (Object.keys(errors).length === con) {
+      setSubmitted({ status: true, mgs: 'Sent Sucessfully' });
+      setInputs({});
+    } else {
+      setSubmitted({ status: false, mgs: 'Failed: please fill in all fields' });
+    }
   };
+
+  useEffect(() => {
+    if (submitted) {
+      setTimeout(() => {
+        setSubmitted(null);
+      }, 5000);
+    }
+  }, [submitted]);
 
   return (
     <div
@@ -56,6 +96,11 @@ function Contact() {
                 onChange={handleChange}
                 value={inputs.first_name || ''}
               />
+              {errors.first_name && (
+                <span className="text-sm font-normal  text-[#F83F23]">
+                  Please enter a first name
+                </span>
+              )}
             </div>
             <div className="flex flex-col items-start gap-[6px] md:w-1/2">
               <label
@@ -73,6 +118,11 @@ function Contact() {
                 onChange={handleChange}
                 value={inputs.last_name || ''}
               />
+              {errors.last_name && (
+                <span className="text-sm font-normal  text-[#F83F23]">
+                  Please enter a last name
+                </span>
+              )}
             </div>
           </div>
           <div className="flex flex-col items-start gap-[6px] w-full">
@@ -91,6 +141,11 @@ function Contact() {
               onChange={handleChange}
               value={inputs.email || ''}
             />
+            {errors.email && (
+              <span className="text-sm font-normal  text-[#F83F23]">
+                Please enter a email
+              </span>
+            )}
           </div>
           <div className="flex flex-col items-start gap-[6px] w-full">
             <label
@@ -107,12 +162,10 @@ function Contact() {
               onChange={handleChange}
               value={inputs.message || ''}
             />
-            {errors.message ? (
+            {errors.message && (
               <span className="text-sm font-normal  text-[#F83F23]">
                 Please enter a message
               </span>
-            ) : (
-              ''
             )}
           </div>
           <div className="flex gap-3">
@@ -140,6 +193,17 @@ function Contact() {
           Send message
         </button>
       </form>
+      {/* alerts */}
+      {submitted && (
+        <div
+          className={`alert fixed text-center p-3 rounded-lg left-1/2 -translate-x-1/2 text-white font-bold ${
+            submitted.status ? 'bg-green-500' : 'bg-red-500'
+          }`}
+        >
+          {' '}
+          {submitted.mgs}{' '}
+        </div>
+      )}
     </div>
   );
 }
