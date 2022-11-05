@@ -22,6 +22,12 @@
 body {
   background-color: #fff;
 }
+main {
+  min-height: calc(100vh - 161px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* contact page form checkbox styling */
 #agreement {

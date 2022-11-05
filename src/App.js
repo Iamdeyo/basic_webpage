@@ -8,11 +8,13 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" exact element={<Profile />} />
-          <Route path="/contact" exact element={<Contact />} />
-          <Route path="/*" element={<ErrorPage />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" exact element={<Profile />} />
+            <Route path="/contact" exact element={<Contact />} />
+            <Route path="/*" element={<ErrorPage />} />
+          </Routes>
+        </main>
         <Footer />
       </BrowserRouter>
     </>
