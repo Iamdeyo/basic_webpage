@@ -68,9 +68,9 @@ function Profile() {
             src={profilePics}
             alt="profile_pics"
             id="profile__img"
-            className="rounded-full h-full w-full object-cover"
+            className="rounded-full h-full w-full object-cover "
           />
-          <div className="h-full w-full flex absolute top-0 left-0 items-end justify-center pb-2 bg-[#344054BF] opacity-0 hover:opacity-100 transition-all ease-in-out duration-300">
+          <div className="h-full rounded-full w-full flex absolute top-0 left-0 items-end justify-center pb-2 bg-[#344054BF] opacity-0 md:hover:opacity-100 transition-all ease-in-out duration-300  active:opacity-100 ">
             <CameraIcon />
           </div>
         </div>
@@ -86,7 +86,7 @@ function Profile() {
         </p>
         <div
           id="share_btn"
-          className="group absolute flex cursor-pointer items-center justify-center w-10 h-10 rounded-full border border-dashed border-gray-300 -top-5 right-0 transition-all ease-in-out duration-300 hover:bg-gray-50 md:right-1/4"
+          className="group absolute flex cursor-pointer items-center justify-center w-10 h-10 rounded-full border border-dashed border-gray-300 -top-5 right-0 transition-all ease-in-out duration-300 active:bg-gray-50 disabled:bg-gray-50 focus:ring-4 focus:ring-gray-100 md:hover:bg-gray-50 md:right-1/4"
         >
           <ShareBtnDes className="hidden md:block" />
           <ShareBtnMob className="md:hidden" />
@@ -115,8 +115,6 @@ function Profile() {
             key={ln.id}
             to={ln.link}
             id={ln.linkId}
-            target="_blank"
-            rel="noreferrer"
             className="bg-gray-200 py-6 text-center text-gray-900 rounded-lg font-medium hover:bg-gray-300 md:font-semibold md:text-lg"
           >
             {ln.title}

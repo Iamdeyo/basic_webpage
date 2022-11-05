@@ -92,7 +92,11 @@ function Contact() {
                 name="first_name"
                 type="text"
                 placeholder="Enter your first name"
-                className="input"
+                className={`input ${
+                  errors.first_name
+                    ? 'border-[#F89687] focus:border-[#F89687]'
+                    : 'border-[#D0D5DD] focus:border-blue-300'
+                }`}
                 onChange={handleChange}
                 value={inputs.first_name || ''}
               />
@@ -114,7 +118,11 @@ function Contact() {
                 name="last_name"
                 type="text"
                 placeholder="Enter your last name"
-                className="input"
+                className={`input ${
+                  errors.last_name
+                    ? 'border-[#F89687] focus:border-[#F89687]'
+                    : 'border-[#D0D5DD] focus:border-blue-300'
+                }`}
                 onChange={handleChange}
                 value={inputs.last_name || ''}
               />
@@ -125,7 +133,7 @@ function Contact() {
               )}
             </div>
           </div>
-          <div className="flex flex-col items-start gap-[6px] w-full">
+          <div className="group flex flex-col items-start gap-[6px] w-full">
             <label
               htmlFor="email"
               className="text-sm font-medium text-gray-700"
@@ -137,7 +145,11 @@ function Contact() {
               name="email"
               type="email"
               placeholder="yourname@email.com"
-              className="input"
+              className={`input ${
+                errors.email
+                  ? 'border-[#F89687] focus:border-[#F89687]'
+                  : 'border-[#D0D5DD] focus:border-blue-300'
+              }`}
               onChange={handleChange}
               value={inputs.email || ''}
             />
@@ -158,7 +170,11 @@ function Contact() {
               id="message"
               name="message"
               placeholder="Send me a message and I'll reply you as soon as possible..."
-              className="input min-h-[132px] resize-y focus:shadow-custom"
+              className={`input min-h-[132px] resize-y ${
+                errors.message
+                  ? 'border-[#F89687] focus:border-[#F89687] focus:shadow-customErr'
+                  : 'border-[#D0D5DD] focus:shadow-custom  focus:border-blue-300'
+              }`}
               onChange={handleChange}
               value={inputs.message || ''}
             />

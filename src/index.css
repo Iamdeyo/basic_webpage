@@ -9,7 +9,7 @@
     font-family: 'Inter', sans-serif;
   }
   .input {
-    @apply outline-none border border-[#D0D5DD] rounded-lg py-[10px] px-[14px] transition-all duration-300 ease-in-out text-gray-900 font-normal text-base shadow-[#1018280d] shadow-sm w-full;
+    @apply outline-none border rounded-lg py-[10px] px-[14px] transition-all duration-300 ease-in-out text-gray-900 font-normal text-base shadow-[#1018280d] shadow-sm w-full;
   }
   .input::placeholder {
     @apply text-base font-normal text-gray-500;
@@ -28,7 +28,6 @@ main {
   align-items: center;
   justify-content: center;
 }
-
 /* contact page form checkbox styling */
 #agreement {
   appearance: none;
